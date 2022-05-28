@@ -1,0 +1,40 @@
+void exclui(Circular *p)
+{
+    Circular *proximo; 
+    char nodulo[30];
+    int e; 
+
+    printf("Digite o nome do soldado: ")
+    scanf("%s", &nodulo);
+
+   while ((strcmp(nodulo, p->nome))!=0) //entra com  o nome do nodulo
+   // strcmp realiza a cópia do conteúdo de uma variável a outra
+   {
+       p=p->prox; //vai para o proximo nodulo 
+   }
+
+   while(p->prox!=p) //dar a volta na lista
+   {
+       printf("Contagem comeca pelo soldado %s", p->nome);
+       getch();
+    
+    for(i=1;i<3;i++) //m=4
+    {
+        if (i==2)
+        {
+            proximo=p; //encontra o nodo anterior do que vai ser removido
+        }
+        p=p->prox;
+    }
+    printf("\n \n Soldado removido: %s", p->nome);
+    proximo->prox = p->prox;
+    free(p); //fazer a ligação do nodo anterior do removido para o próximo
+    p=proximo->prox;
+
+}
+printf("Soldado vivo: %s", p->nome);
+getch();
+}
+
+
+1,2,4(a,c,f)
